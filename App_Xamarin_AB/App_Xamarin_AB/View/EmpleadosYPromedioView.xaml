@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App_Xamarin_AB.View.EmpleadosYPromedioView"
+             xmlns:MiViewModelABTest="clr-namespace:App_Xamarin_AB.ViewModel"
+             >
+    <ContentPage.BindingContext>
+       <MiViewModelABTest:EmpleadosYPromedioViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#00acc1" HorizontalOptions="FillAndExpand">
+            <StackLayout BackgroundColor="#007c91"  HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Label Text="Monto: $"  />
+                    <Entry Keyboard="Numeric" Text="{Binding CalcularPromerdio.Amount}" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+
+                <StackLayout >
+                    <Label BindingContext="{x:Reference stepper}" Text="{Binding Value}" />
+                    <Stepper Minimum="1" Maximum="10" x:Name="stepper" Value="{Binding CalcularPromerdio.Cantidad}" />
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="{Binding CalcularPromerdio.Resultado}"/>
+                </StackLayout>
+            </StackLayout>
+            
+            <StackLayout>
+                <ListView
+                ItemsSource="{Binding ListaEmpleados}"
+                HasUnevenRows="True"
+                >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout >
+                                    <StackLayout Orientation="Horizontal" Padding="5, 5, 5, 5" BackgroundColor="#007c91">
+                                <Label Text="{Binding ID}"/>
+                                <Label Text="{Binding Name}"/>
+                                <Label Text="{Binding PositionName}"/>
+                                <Label Text="{Binding ProfileName}"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
