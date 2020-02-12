@@ -32,16 +32,51 @@
                 ItemsSource="{Binding ListaEmpleados}"
                 HasUnevenRows="True"
                 >
+                    <ListView.Header>
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label BackgroundColor="#78b83e" Text="Id" Grid.Column="0" Grid.Row="0" />
+                            <Label BackgroundColor="#78b83e" Text="Name" Grid.Column="1" Grid.Row="0"/>
+                            <Label BackgroundColor="#78b83e" Text="PositionName" Grid.Column="2" Grid.Row="0"/>
+                            <Label BackgroundColor="#78b83e"  Text="ProfileName" Grid.Column="3" Grid.Row="0"/>
+                        </Grid>
+                    </ListView.Header>
+
+
+
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout >
-                                    <StackLayout Orientation="Horizontal" Padding="5, 5, 5, 5" BackgroundColor="#007c91">
-                                <Label Text="{Binding ID}"/>
-                                <Label Text="{Binding Name}"/>
-                                <Label Text="{Binding PositionName}"/>
-                                <Label Text="{Binding ProfileName}"/>
-                                    </StackLayout>
+                                <StackLayout>
+                                    <Grid  HorizontalOptions="Center" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5*" />
+                                        <ColumnDefinition Width="5*"/>
+                                            <ColumnDefinition Width="5*" />
+                                            <ColumnDefinition Width="5*"/>
+                                        </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                 
+                                <Label Text="{Binding ID}" Grid.Column="0" />
+                                <Label Text="{Binding Name}" Grid.Column="1"/>
+                                <Label Text="{Binding PositionName}" Grid.Column="2"/>
+                                <Label Text="{Binding ProfileName}" Grid.Column="3"/>
+                               
+                                    </Grid>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
